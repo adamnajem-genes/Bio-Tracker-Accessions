@@ -1,0 +1,2 @@
+ALTER TABLE public.entries DROP CONSTRAINT IF EXISTS entries_project_id_fkey;
+ALTER TABLE public.entries ADD CONSTRAINT entries_project_id_fkey FOREIGN KEY (project_id) REFERENCES public.projects(id) ON DELETE SET NULL;

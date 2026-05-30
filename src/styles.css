@@ -1,0 +1,215 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   AccessionDeck — Frutiger Aero design system
+   Glossy glass, aqua/sky gradients, soft photoreal depth.
+   ============================================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-aqua: var(--aqua);
+  --color-leaf: var(--leaf);
+  --color-sun: var(--sun);
+  --color-bubble: var(--bubble);
+  --font-display: "Nunito", "SF Pro Display", system-ui, sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Sky / water palette */
+  --background: oklch(0.97 0.03 220);
+  --foreground: oklch(0.22 0.06 240);
+
+  --card: oklch(0.99 0.015 220 / 0.7);
+  --card-foreground: oklch(0.22 0.06 240);
+  --popover: oklch(0.99 0.01 220);
+  --popover-foreground: oklch(0.22 0.06 240);
+
+  --primary: oklch(0.62 0.18 220);            /* aqua blue */
+  --primary-foreground: oklch(0.99 0.005 220);
+  --secondary: oklch(0.9 0.08 180 / 0.6);     /* glassy teal */
+  --secondary-foreground: oklch(0.22 0.08 220);
+
+  --muted: oklch(0.94 0.03 215 / 0.6);
+  --muted-foreground: oklch(0.42 0.06 235);
+  --accent: oklch(0.78 0.18 160);             /* leafy green */
+  --accent-foreground: oklch(0.16 0.08 160);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(1 0 0 / 0.55);
+  --input: oklch(1 0 0 / 0.55);
+  --ring: oklch(0.7 0.18 220);
+
+  --aqua: oklch(0.72 0.16 220);
+  --leaf: oklch(0.78 0.18 150);
+  --sun: oklch(0.88 0.16 90);
+  --bubble: oklch(0.95 0.05 200 / 0.7);
+
+  /* Signature gradients & shadows */
+  --gradient-sky: linear-gradient(180deg,
+    oklch(0.86 0.09 220) 0%,
+    oklch(0.78 0.12 215) 35%,
+    oklch(0.72 0.14 200) 70%,
+    oklch(0.85 0.14 150) 100%);
+  --gradient-aqua: linear-gradient(135deg,
+    oklch(0.82 0.16 200) 0%,
+    oklch(0.62 0.2 220) 100%);
+  --gradient-leaf: linear-gradient(135deg,
+    oklch(0.88 0.17 150) 0%,
+    oklch(0.65 0.18 160) 100%);
+  --gradient-bubble: linear-gradient(180deg,
+    rgba(255,255,255,0.95) 0%,
+    rgba(255,255,255,0.55) 45%,
+    rgba(255,255,255,0.25) 60%,
+    rgba(255,255,255,0.4) 100%);
+
+  --shadow-aero: 0 1px 0 rgba(255,255,255,0.9) inset,
+                 0 -10px 30px rgba(255,255,255,0.35) inset,
+                 0 10px 30px -8px rgba(20, 60, 120, 0.25),
+                 0 24px 60px -20px rgba(20, 60, 120, 0.35);
+  --shadow-glass: 0 1px 0 rgba(255,255,255,0.8) inset,
+                  0 0 0 1px rgba(255,255,255,0.4) inset,
+                  0 12px 40px -12px rgba(20, 80, 150, 0.35);
+  --shadow-pill: 0 1px 0 rgba(255,255,255,0.95) inset,
+                 0 -4px 10px rgba(0, 60, 120, 0.12) inset,
+                 0 6px 18px -6px rgba(0, 60, 120, 0.35);
+
+  /* Database brand colors */
+  --db-ncbi: oklch(0.6 0.18 250);
+  --db-blast: oklch(0.68 0.2 30);
+  --db-mgi: oklch(0.65 0.2 320);
+  --db-ensembl: oklch(0.62 0.18 290);
+  --db-uniprot: oklch(0.68 0.18 60);
+  --db-pdb: oklch(0.65 0.2 140);
+  --db-kegg: oklch(0.62 0.18 200);
+  --db-other: oklch(0.6 0.05 240);
+}
+
+.dark {
+  --background: oklch(0.18 0.05 240);
+  --foreground: oklch(0.96 0.02 220);
+  --card: oklch(0.26 0.06 235 / 0.55);
+  --card-foreground: oklch(0.96 0.02 220);
+  --popover: oklch(0.22 0.06 240);
+  --popover-foreground: oklch(0.96 0.02 220);
+  --primary: oklch(0.78 0.18 220);
+  --primary-foreground: oklch(0.16 0.06 240);
+  --border: oklch(1 0 0 / 0.12);
+  --input: oklch(1 0 0 / 0.12);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--gradient-sky);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 40% at 20% 10%, rgba(255,255,255,0.55), transparent 60%),
+      radial-gradient(40% 30% at 85% 15%, rgba(255,255,255,0.35), transparent 60%),
+      radial-gradient(50% 30% at 50% 100%, rgba(180,255,200,0.35), transparent 60%);
+    z-index: 0;
+  }
+  #root, main { position: relative; z-index: 1; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+/* ===== Frutiger Aero utility classes ===== */
+@layer components {
+  .glass {
+    background: var(--gradient-bubble);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius-2xl);
+  }
+  .glass-card {
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.85) 0%,
+      rgba(235,248,255,0.55) 50%,
+      rgba(220,240,255,0.55) 100%);
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border: 1px solid rgba(255,255,255,0.7);
+    box-shadow: var(--shadow-aero);
+    border-radius: var(--radius-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0));
+    pointer-events: none;
+  }
+  .aqua-pill {
+    background: var(--gradient-aqua);
+    color: white;
+    box-shadow: var(--shadow-pill);
+    border: 1px solid rgba(255,255,255,0.5);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  }
+  .leaf-pill {
+    background: var(--gradient-leaf);
+    color: white;
+    box-shadow: var(--shadow-pill);
+    border: 1px solid rgba(255,255,255,0.5);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  }
+  .bubble-input {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset,
+                0 2px 8px rgba(40, 100, 180, 0.12) inset;
+    backdrop-filter: blur(6px);
+  }
+  .bubble-input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px oklch(0.78 0.16 220 / 0.45),
+                0 1px 0 rgba(255,255,255,0.9) inset;
+  }
+}
